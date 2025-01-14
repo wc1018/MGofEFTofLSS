@@ -1,1 +1,5 @@
+# LCDM
+wc_LCDM.data_directory       = '/exports/home/wucheng/data/results/montepython/LCDM/data'
+wc_LCDM.data_file           = 'boxlen1000_n256_z0_mean_cov.h5'
+wc_LCDM.Nt = 3
 
