@@ -1,0 +1,39 @@
+#------Experiments to test (separated with commas)-----
+# To see all the available ones, please look in the
+# montepython/likelihoods folder. Every folder there is a valid likelihood to
+# test.
+data.experiments=['bbn_prior', 'wc_LCDM_eft']
+data.over_sampling=[1, 4]
+
+#------ Parameter list -------
+# data.parameters[class name] = [mean, min, max, 1-sigma, scale, role]
+# - if min max irrelevant, put to -1 or None (if you want a boundary of -1, use -1.0)
+# - if fixed, put 1-sigma to 0
+# - if scale irrelevant, put to 1, otherwise to the appropriate factor
+# - role is either 'cosmo', 'nuisance' or 'derived'
+
+# Cosmological parameters list
+data.parameters['Omega_b'] 	= [5.,  -1,-1, 0.016, 0.01,'cosmo']
+data.parameters['Omega_cdm'] 	= [0.2, -1,-1, 0.0016,1,   'cosmo']
+# data.parameters['n_s']       	= [0.963,  -1,-1, 0.004, 1,   'cosmo']
+# data.parameters['A_s']       	= [2.42,   -1,-1, 0.038, 1e-9,'cosmo']
+data.parameters['h']         	= [0.703,  -1,-1, 0.0065,1,   'cosmo']
+
+
+
+
+# EFT nuisance parameters
+data.parameters['b1']  = [2.,   0.,   4., 0.5, 1,  'nuisance']
+data.parameters['c2']  = [0., -10.,  10., 0.5, 1,  'nuisance']
+
+# Derived parameter list
+data.parameters['Omega_m'] 	= [0,       -1, -1, 0,1,  'derived']
+
+data.cosmo_arguments['sBBN file'] = data.path['cosmo']+'/external/bbn/sBBN.dat'
+
+#------ Mcmc parameters ----
+# Number of steps taken, by default (overwritten by the -N command)
+data.N = 10
+# Number of accepted steps before writing to file the chain. Larger means less
+# access to disc, but this is not so much time consuming.
+data.write_step = 10
