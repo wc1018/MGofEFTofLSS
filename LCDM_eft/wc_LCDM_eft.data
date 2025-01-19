@@ -1,0 +1,3 @@
+wc_LCDM_eft.data_directory = '/exports/home/wucheng/data/results/montepython/LCDM_eft/data'
+wc_LCDM_eft.config_file = 'newton.yaml'
+wc_LCDM_eft.use_nuisance = ['b1', 'c2']
